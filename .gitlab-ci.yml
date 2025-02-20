@@ -1,0 +1,4 @@
+include:
+  - project: 'Blockdaemon/security/gitlab-pipeline-blueprints'
+    ref: main
+    file: 'core/security-scan.yml'
