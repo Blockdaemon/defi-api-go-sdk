@@ -1,7 +1,6 @@
 name: Sync GitLab to GitHub
 
-permissions:
-  repository-projects: write
+
 
 on:
   schedule:
@@ -11,6 +10,8 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Clone GitLab repo
         run: |
