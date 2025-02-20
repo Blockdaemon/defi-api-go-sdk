@@ -1,17 +1,16 @@
 name: Sync GitLab to GitHub
 
-
-
 on:
   schedule:
     - cron: '0 * * * *'  # Runs every hour
   workflow_dispatch:  # Allows manual triggering
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Clone GitLab repo
         run: |
