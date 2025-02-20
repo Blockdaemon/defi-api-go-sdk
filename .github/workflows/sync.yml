@@ -1,0 +1,18 @@
+name: Sync GitLab to GitHub
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: |
+          git clone --mirror https://oauth2:${{ secrets.GILTAB_READ_TOKEN_PUBLIC_MIRROR }}@gitlab.com/Blockdaemon/research-development/interoperability/public/defi-api-go-sdk.git repo
+          cd repo
+          git remote set-url --push origin https://github.com/Blockdaemon/defi-api-go-sdk.git
+          git fetch -p origin
+          git push --mirror
