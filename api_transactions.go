@@ -111,12 +111,12 @@ func (a *TransactionsAPIService) GetTransactionsExecute(r ApiGetTransactionsRequ
 		return localVarReturnValue, nil, reportError("limit must be less than 100")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "form", "")
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

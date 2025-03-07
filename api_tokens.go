@@ -219,23 +219,23 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (*TokenList, 
 	localVarFormParams := url.Values{}
 
 	if r.chainID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
 	}
 	if r.tokenAddress != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "form", "")
 	}
 	if r.tokenSymbol != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenSymbol", r.tokenSymbol, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenSymbol", r.tokenSymbol, "form", "")
 	}
 	if r.tagLimit != nil {
 		t := *r.tagLimit
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "tagLimit", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "tagLimit", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "tagLimit", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "tagLimit", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header

@@ -29,6 +29,7 @@ type ApiGetChainsRequest struct {
 	chainID *string
 	chainName *string
 	networkType *NetworkType
+	chainType *ChainType
 }
 
 // The CAIP-2 identifier for a blockchain.
@@ -46,6 +47,12 @@ func (r ApiGetChainsRequest) ChainName(chainName string) ApiGetChainsRequest {
 // The type of network (mainnet, testnet, or devnet).
 func (r ApiGetChainsRequest) NetworkType(networkType NetworkType) ApiGetChainsRequest {
 	r.networkType = &networkType
+	return r
+}
+
+// The type of chain (e.g evm, or aptos).
+func (r ApiGetChainsRequest) ChainType(chainType ChainType) ApiGetChainsRequest {
+	r.chainType = &chainType
 	return r
 }
 
@@ -90,13 +97,16 @@ func (a *ChainsAPIService) GetChainsExecute(r ApiGetChainsRequest) (*Chains, *ht
 	localVarFormParams := url.Values{}
 
 	if r.chainID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
 	}
 	if r.chainName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "form", "")
 	}
 	if r.networkType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "form", "")
+	}
+	if r.chainType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainType", r.chainType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

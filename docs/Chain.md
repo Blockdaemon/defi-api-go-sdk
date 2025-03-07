@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ChainName** | **string** | The name of a blockchain. | 
 **ChainID** | **string** | The unique identifier of a blockchain in CAIP-2 notation. | 
 **NetworkType** | Pointer to [**NetworkType**](NetworkType.md) |  | [optional] 
+**ChainType** | Pointer to [**ChainType**](ChainType.md) |  | [optional] 
 **ChainIconURI** | Pointer to **string** | The type of network (mainnet, testnet, or devnet). | [optional] 
 **BlockTime** | Pointer to **int32** | estimated block confirmation time in seconds | [optional] 
 **BlockConfirmations** | Pointer to **int32** | number of additional blocks required to ensure the transaction is not reversed | [optional] 
@@ -97,6 +98,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *Chain) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetChainType
+
+`func (o *Chain) GetChainType() ChainType`
+
+GetChainType returns the ChainType field if non-nil, zero value otherwise.
+
+### GetChainTypeOk
+
+`func (o *Chain) GetChainTypeOk() (*ChainType, bool)`
+
+GetChainTypeOk returns a tuple with the ChainType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChainType
+
+`func (o *Chain) SetChainType(v ChainType)`
+
+SetChainType sets ChainType field to given value.
+
+### HasChainType
+
+`func (o *Chain) HasChainType() bool`
+
+HasChainType returns a boolean if a field has been set.
 
 ### GetChainIconURI
 

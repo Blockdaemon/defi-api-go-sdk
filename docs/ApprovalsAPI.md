@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**DeleteTokenApproval**](ApprovalsAPI.md#DeleteTokenApproval) | **Delete** /approval | Delete an ERC20 token approval
 [**GetAllApprovals**](ApprovalsAPI.md#GetAllApprovals) | **Get** /approvals | Get a list of ERC20 token approvals
 [**GetSupportedChains**](ApprovalsAPI.md#GetSupportedChains) | **Get** /approvals/supported-chains | Get supported chains for token approvals
-[**GetTokenApproval**](ApprovalsAPI.md#GetTokenApproval) | **Get** /approval | List ERC20 token approvals
+[**GetTokenApproval**](ApprovalsAPI.md#GetTokenApproval) | **Get** /approval | List ERC20 token approval
 [**ModifyTokenApproval**](ApprovalsAPI.md#ModifyTokenApproval) | **Post** /approval | Modify an ERC20 token approval
 
 
@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	tokenApprovalDeletion := *openapiclient.NewTokenApprovalDeletion("ChainID_example", "AccountAddress_example", "SpenderAddress_example", "TokenAddress_example") // TokenApprovalDeletion | The request body for a delete approval
+	tokenApprovalDeletion := *openapiclient.NewTokenApprovalDeletion("ChainID_example", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced") // TokenApprovalDeletion | The request body for a delete approval
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -100,9 +100,9 @@ import (
 
 func main() {
 	chainIDs := []string{"Inner_example"} // []string | A list of CAIP-2 identifiers for blockchains.
-	accountAddresses := []string{"Inner_example"} // []string | A list of account addresses to query.
-	spenderAddresses := []string{"Inner_example"} // []string | A list of spender addresses to query. If omitted, all supported spenders will be queried. (optional)
-	tokenAddresses := []string{"Inner_example"} // []string | A list of token contract addresses to query. If omitted, all supported tokens will be queried. (optional)
+	accountAddresses := []string{"0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced"} // []string | A list of account addresses to query.
+	spenderAddresses := []string{"0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced"} // []string | A list of spender addresses to query. If omitted, all supported spenders will be queried. (optional)
+	tokenAddresses := []string{"0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced"} // []string | A list of token contract addresses to query. If omitted, all supported tokens will be queried. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 > TokenApprovalData GetTokenApproval(ctx).ChainID(chainID).AccountAddress(accountAddress).TokenAddress(tokenAddress).SpenderAddress(spenderAddress).Execute()
 
-List ERC20 token approvals
+List ERC20 token approval
 
 
 
@@ -313,7 +313,7 @@ import (
 )
 
 func main() {
-	tokenApprovalModification := *openapiclient.NewTokenApprovalModification("ChainID_example", "AccountAddress_example", "SpenderAddress_example", "TokenAddress_example", "ToApprovedAmount_example") // TokenApprovalModification | The request body for a post approval
+	tokenApprovalModification := *openapiclient.NewTokenApprovalModification("ChainID_example", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced", "0xf271AAFC62634e6Dc9A276ac0f6145C4fDbE2Ced", "ToApprovedAmount_example") // TokenApprovalModification | The request body for a post approval
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

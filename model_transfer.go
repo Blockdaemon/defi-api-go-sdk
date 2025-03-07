@@ -3,7 +3,7 @@ Blockdaemon DeFi API
 
 The Blockdaemon DeFi API provides a single interface to a multitude of DeFi projects and blockchains
 
-API version: 1.43.0
+API version: 1.0.0
 Contact: info@blockdaemon.com
 */
 

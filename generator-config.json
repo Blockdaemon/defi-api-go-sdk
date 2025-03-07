@@ -1,0 +1,7 @@
+{
+  "npmName": "blockdaemon/blockdaemon-defi-api-typescript-redux-query",
+  "npmRepository": "https://www.npmjs.com/package/@blockdaemon/blockdaemon-defi-api-typescript-fetch",
+  "generateAliasAsModel": true,
+  "nullSafeAdditionalProps": true,
+  "modelPropertyNaming": "camelCase"
+}

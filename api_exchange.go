@@ -183,23 +183,23 @@ func (a *ExchangeAPIService) GetRoutesExecute(r ApiGetRoutesRequest) (*RoutesRes
 		return localVarReturnValue, nil, reportError("slippage must be less than 1")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "fromChain", r.fromChain, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "fromAmount", r.fromAmount, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "fromToken", r.fromToken, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "toChain", r.toChain, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "toToken", r.toToken, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "fromAddress", r.fromAddress, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "toAddress", r.toAddress, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "slippage", r.slippage, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "fromChain", r.fromChain, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "fromAmount", r.fromAmount, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "fromToken", r.fromToken, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "toChain", r.toChain, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "toToken", r.toToken, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "fromAddress", r.fromAddress, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "toAddress", r.toAddress, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "slippage", r.slippage, "form", "")
 	if r.allowBridges != nil {
 		t := *r.allowBridges
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "allowBridges", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "allowBridges", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "allowBridges", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "allowBridges", t, "form", "multi")
 		}
 	}
 	if r.allowExchanges != nil {
@@ -207,10 +207,10 @@ func (a *ExchangeAPIService) GetRoutesExecute(r ApiGetRoutesRequest) (*RoutesRes
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "allowExchanges", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "allowExchanges", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "allowExchanges", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "allowExchanges", t, "form", "multi")
 		}
 	}
 	if r.denyBridges != nil {
@@ -218,10 +218,10 @@ func (a *ExchangeAPIService) GetRoutesExecute(r ApiGetRoutesRequest) (*RoutesRes
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "denyBridges", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "denyBridges", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "denyBridges", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "denyBridges", t, "form", "multi")
 		}
 	}
 	if r.denyExchanges != nil {
@@ -229,10 +229,10 @@ func (a *ExchangeAPIService) GetRoutesExecute(r ApiGetRoutesRequest) (*RoutesRes
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "denyExchanges", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "denyExchanges", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "denyExchanges", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "denyExchanges", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -396,10 +396,10 @@ func (a *ExchangeAPIService) GetStatusExecute(r ApiGetStatusRequest) (*StatusRes
 		return localVarReturnValue, nil, reportError("toChain is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "transactionID", r.transactionID, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "targetID", r.targetID, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "fromChain", r.fromChain, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "toChain", r.toChain, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "transactionID", r.transactionID, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "targetID", r.targetID, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "fromChain", r.fromChain, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "toChain", r.toChain, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

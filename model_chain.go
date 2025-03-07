@@ -27,6 +27,7 @@ type Chain struct {
 	// The unique identifier of a blockchain in CAIP-2 notation.
 	ChainID string `json:"chainID" validate:"regexp=^[-a-z0-9]{3,8}:[-_a-zA-Z0-9]{1,32}$"`
 	NetworkType *NetworkType `json:"networkType,omitempty"`
+	ChainType *ChainType `json:"chainType,omitempty"`
 	// The type of network (mainnet, testnet, or devnet).
 	ChainIconURI *string `json:"chainIconURI,omitempty"`
 	// estimated block confirmation time in seconds
@@ -140,6 +141,38 @@ func (o *Chain) HasNetworkType() bool {
 // SetNetworkType gets a reference to the given NetworkType and assigns it to the NetworkType field.
 func (o *Chain) SetNetworkType(v NetworkType) {
 	o.NetworkType = &v
+}
+
+// GetChainType returns the ChainType field value if set, zero value otherwise.
+func (o *Chain) GetChainType() ChainType {
+	if o == nil || IsNil(o.ChainType) {
+		var ret ChainType
+		return ret
+	}
+	return *o.ChainType
+}
+
+// GetChainTypeOk returns a tuple with the ChainType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Chain) GetChainTypeOk() (*ChainType, bool) {
+	if o == nil || IsNil(o.ChainType) {
+		return nil, false
+	}
+	return o.ChainType, true
+}
+
+// HasChainType returns a boolean if a field has been set.
+func (o *Chain) HasChainType() bool {
+	if o != nil && !IsNil(o.ChainType) {
+		return true
+	}
+
+	return false
+}
+
+// SetChainType gets a reference to the given ChainType and assigns it to the ChainType field.
+func (o *Chain) SetChainType(v ChainType) {
+	o.ChainType = &v
 }
 
 // GetChainIconURI returns the ChainIconURI field value if set, zero value otherwise.
@@ -340,6 +373,9 @@ func (o Chain) ToMap() (map[string]interface{}, error) {
 	toSerialize["chainID"] = o.ChainID
 	if !IsNil(o.NetworkType) {
 		toSerialize["networkType"] = o.NetworkType
+	}
+	if !IsNil(o.ChainType) {
+		toSerialize["chainType"] = o.ChainType
 	}
 	if !IsNil(o.ChainIconURI) {
 		toSerialize["chainIconURI"] = o.ChainIconURI

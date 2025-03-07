@@ -241,18 +241,18 @@ func (a *ApprovalsAPIService) GetAllApprovalsExecute(r ApiGetAllApprovalsRequest
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", t, "form", "multi")
 		}
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddresses", r.accountAddresses, "csv")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddresses", r.accountAddresses, "form", "csv")
 	if r.spenderAddresses != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "spenderAddresses", r.spenderAddresses, "csv")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "spenderAddresses", r.spenderAddresses, "form", "csv")
 	}
 	if r.tokenAddresses != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddresses", r.tokenAddresses, "csv")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddresses", r.tokenAddresses, "form", "csv")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -397,13 +397,13 @@ func (a *ApprovalsAPIService) GetSupportedChainsExecute(r ApiGetSupportedChainsR
 	localVarFormParams := url.Values{}
 
 	if r.chainID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
 	}
 	if r.chainName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "form", "")
 	}
 	if r.networkType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -519,7 +519,7 @@ func (r ApiGetTokenApprovalRequest) Execute() (*TokenApprovalData, *http.Respons
 }
 
 /*
-GetTokenApproval List ERC20 token approvals
+GetTokenApproval List ERC20 token approval
 
 Retrieves token approval details for a specified account, token, and spender. This includes information such as the approved amount, the chain ID, and the spender's address and name. Token approvals are required for certain DeFi interactions, and this endpoint allows users to check the current approval status for their tokens.
 
@@ -567,10 +567,10 @@ func (a *ApprovalsAPIService) GetTokenApprovalExecute(r ApiGetTokenApprovalReque
 		return localVarReturnValue, nil, reportError("spenderAddress is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "spenderAddress", r.spenderAddress, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "spenderAddress", r.spenderAddress, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

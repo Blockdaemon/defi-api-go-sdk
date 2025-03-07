@@ -96,19 +96,19 @@ func (a *BalancesAPIService) GetBalancesExecute(r ApiGetBalancesRequest) (*Balan
 		return localVarReturnValue, nil, reportError("chainIDs is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "accountAddress", r.accountAddress, "form", "")
 	if r.tokenAddress != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tokenAddress", r.tokenAddress, "form", "")
 	}
 	{
 		t := *r.chainIDs
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "chainIDs", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -246,13 +246,13 @@ func (a *BalancesAPIService) GetSupportedChainsForBalancesExecute(r ApiGetSuppor
 	localVarFormParams := url.Values{}
 
 	if r.chainID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainID", r.chainID, "form", "")
 	}
 	if r.chainName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "form", "")
 	}
 	if r.networkType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "networkType", r.networkType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

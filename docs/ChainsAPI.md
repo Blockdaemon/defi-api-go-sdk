@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetChains
 
-> Chains GetChains(ctx).ChainID(chainID).ChainName(chainName).NetworkType(networkType).Execute()
+> Chains GetChains(ctx).ChainID(chainID).ChainName(chainName).NetworkType(networkType).ChainType(chainType).Execute()
 
 Get supported blockchain networks with metadata
 
@@ -32,10 +32,11 @@ func main() {
 	chainID := "eip155:1" // string | The CAIP-2 identifier for a blockchain. (optional)
 	chainName := "Ethereum" // string | The name of a blockchain. (optional)
 	networkType := openapiclient.NetworkType("mainnet") // NetworkType | The type of network (mainnet, testnet, or devnet). (optional)
+	chainType := openapiclient.ChainType("evm") // ChainType | The type of chain (e.g evm, or aptos). (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ChainsAPI.GetChains(context.Background()).ChainID(chainID).ChainName(chainName).NetworkType(networkType).Execute()
+	resp, r, err := apiClient.ChainsAPI.GetChains(context.Background()).ChainID(chainID).ChainName(chainName).NetworkType(networkType).ChainType(chainType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ChainsAPI.GetChains``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
  **chainID** | **string** | The CAIP-2 identifier for a blockchain. | 
  **chainName** | **string** | The name of a blockchain. | 
  **networkType** | [**NetworkType**](NetworkType.md) | The type of network (mainnet, testnet, or devnet). | 
+ **chainType** | [**ChainType**](ChainType.md) | The type of chain (e.g evm, or aptos). | 
 
 ### Return type
 
