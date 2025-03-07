@@ -1,4 +1,5 @@
 # Go API client for openapi
+TEST
 
 The Blockdaemon DeFi API provides a single interface to a multitude of DeFi projects and blockchains
 
